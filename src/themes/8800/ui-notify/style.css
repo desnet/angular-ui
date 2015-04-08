@@ -1,0 +1,28 @@
+.ui-notify {
+    display: none;
+    position: fixed;
+    max-width: 980px;
+    z-index: 1000;
+    top: 0;
+    left: 50%;
+    padding: 15px;
+    background: #57068c;
+    color: #ffffff;
+    -webkit-transition: opacity linear 0.2s;
+    transition: opacity linear 0.2s;
+    opacity: 0;
+}
+.ui-notify.show {
+    opacity: 1;
+}
+.ui-notify-close {
+    color: #999999;
+    font-size: 8px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+}
+.ui-notify-close:hover {
+    color: #ffffff;
+}

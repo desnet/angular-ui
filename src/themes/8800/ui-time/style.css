@@ -1,0 +1,7 @@
+.ui-time {
+    display: inline-block;
+    width: 145px;
+}
+.ui-time > input {
+    width: 100%;
+}

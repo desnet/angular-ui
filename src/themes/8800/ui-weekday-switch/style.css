@@ -1,0 +1,41 @@
+table.ui-weekday-switch {
+    color: #9c9c9c;
+    width: 100%;
+}
+
+table.ui-weekday-switch th {
+    padding-left: 3px;
+    padding-bottom: 5px;
+}
+
+table.ui-weekday-switch th:first-child {
+    padding-left: 0;
+}
+
+table.ui-weekday-switch td {
+    background-color: #f3f3f3;
+    padding: 11px;
+    border-left: 5px solid #ffffff;
+    cursor: pointer;
+    min-width: 3em;
+    text-align: center;
+}
+
+table.ui-weekday-switch td:first-child {
+    border-left: 0;
+}
+
+table.ui-weekday-switch td.active {
+    background-color: #57068C;
+    color: #ffffff;
+}
+
+table.ui-weekday-switch td:hover {
+    background-color: #5C0A96;
+    color: #ffffff;
+}
+
+table.ui-weekday-switch td:active {
+    background-color: #520084;
+    color: #ffffff;
+}

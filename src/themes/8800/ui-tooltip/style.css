@@ -1,0 +1,100 @@
+.ui-tooltip {
+    position: absolute;
+    box-sizing: border-box;
+    border: solid 1px #d2d2d2;
+    border-radius: 3px;
+    z-index: 100;
+    top: 0;
+    left: -1000px;
+    background-color: #fff;
+    padding: 0.5625rem 0.875rem;
+    max-width: 20rem;
+    font-size: 0.875rem;
+    -webkit-box-shadow: 0 0.3125rem 0.625rem rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0.3125rem 0.625rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.3125rem 0.625rem rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+
+}
+.ui-tooltip.show {
+    opacity: 1;
+}
+.ui-tooltip > span,
+.ui-tooltip > span:after {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 0;
+    height: 0;
+    border: solid 11px;
+    border-color: transparent;
+}
+.ui-tooltip > span:after {
+    border-width: 10px;
+}
+.ui-tooltip.top {
+    margin-bottom: 10px;
+}
+.ui-tooltip.top > span {
+    border-top-color: #d2d2d2;
+    border-bottom-width: 0;
+    bottom: -11px;
+    /*left: 50%;
+    margin-left: -11px;*/
+    left: 10%;
+}
+.ui-tooltip.top > span:after {
+    border-top-color: white;
+    border-bottom-width: 0;
+    bottom: 1px;
+    margin-left: -10px;
+}
+.ui-tooltip.bottom {
+    margin-top: 10px;
+}
+.ui-tooltip.bottom > span {
+    border-bottom-color: #d2d2d2;
+    border-top-width: 0;
+    top: -11px;
+    /*left: 50%;
+    margin-left: -11px;*/
+    left: 10%;
+}
+.ui-tooltip.bottom > span:after {
+    border-bottom-color: white;
+    border-top-width: 0;
+    top: 1px;
+    margin-left: -10px;
+}
+.ui-tooltip.right {
+    margin-left: 10px;
+}
+.ui-tooltip.right > span {
+    border-right-color: #d2d2d2;
+    border-left-width: 0;
+    top: 50%;
+    left: -11px;
+    margin-top: -11px;
+}
+.ui-tooltip.right > span:after {
+    border-right-color: white;
+    border-left-width: 0;
+    left: 1px;
+    bottom: -10px;
+}
+.ui-tooltip.left {
+    margin-right: 10px;
+}
+.ui-tooltip.left > span {
+    border-left-color: #d2d2d2;
+    border-right-width: 0;
+    top: 50%;
+    right: -11px;
+    margin-top: -11px;
+}
+.ui-tooltip.left > span:after {
+    border-left-color: white;
+    border-right-width: 0;
+    right: 1px;
+    bottom: -10px;
+}

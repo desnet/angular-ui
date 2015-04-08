@@ -1,0 +1,24 @@
+div.ui-busy {
+    position: absolute;
+    z-index: 2000;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0, 0.3);
+}
+
+div.ui-busy i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -28px 0 0 -28px;
+    font-size: 56px;
+    color: rgba(0,0,0, 0.5);
+    -webkit-animation: ui-busy-rotate 2s linear infinite;
+    -moz-animation: ui-busy-rotate 2s linear infinite;
+    animation: ui-busy-rotate 2s linear infinite;
+}
+@-moz-keyframes ui-busy-rotate { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes ui-busy-rotate { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes ui-busy-rotate { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }

@@ -1,0 +1,36 @@
+.ui-spinner {
+    display: inline-block;
+    position: relative;
+    width: 56px;
+}
+.ui-spinner-btn {
+    font-size: 6px !important;
+    border-radius: 3px !important;
+    padding: 0px 3px;
+    width: 14px;
+    height: 8px;
+    outline: 0;
+}
+.ui-spinner-btn-container {
+    display: inline-block;
+    position: absolute;
+    line-height: 6px;
+    top: 2px;
+    right: 0;
+    width: 16px;
+}
+.ui-spinner-btn-container button:first-child {
+    margin-bottom: 2px;
+}
+.ui-spinner-up,
+.ui-spinner-down {
+    text-align: center;
+    top: 0px;
+    vertical-align: top;
+}
+
+.ui-spinner-input {
+    padding-right: 16px !important;
+    width: 100%;
+    text-align: center;
+}

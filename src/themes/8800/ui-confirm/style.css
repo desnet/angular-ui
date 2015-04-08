@@ -1,0 +1,10 @@
+div.ui-confirm {
+    width: 350px;
+    height: 200px;
+    margin-left: -175px;
+    margin-top: -120px;
+}
+
+div.ui-confirm > section {
+    padding: 52px 1.5em 74px;
+}

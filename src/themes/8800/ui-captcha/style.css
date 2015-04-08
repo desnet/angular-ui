@@ -1,0 +1,46 @@
+div.ui-captcha {
+    position: relative;
+}
+
+div.ui-captcha > input{
+    padding-right: 132px;
+}
+
+div.ui-captcha > img {
+    border: 0;
+    position: absolute;
+    right: 34px;
+    top: 1px;
+    width: 87px;
+    height: 34px;
+    border-left: 1px solid #f2f2f2;
+}
+
+div.ui-captcha > .button {
+    border: 0;
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    width: 34px;
+    height: 34px;
+    outline: 0;
+    cursor: pointer;
+}
+div.ui-captcha > .button:focus {
+    background-color: #f2f2f2;
+    color: inherit;
+}
+
+div.ui-captcha.update > .button i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -7px;
+    margin-top: -7px;
+}
+
+div.ui-captcha.update .button i {
+    -webkit-animation: rotate 0.5s linear infinite;
+    -moz-animation: rotate 0.5s linear infinite;
+    animation: rotate 0.5s linear infinite;
+}
