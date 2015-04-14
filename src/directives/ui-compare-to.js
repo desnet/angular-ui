@@ -1,7 +1,7 @@
 
 /* сравнение паролей */
 
-angular.module('directives', ['ng']).directive("uiCompareTo", function() {
+uis.directive("uiCompareTo", function() {
     return {
         require: "ngModel",
         scope: {

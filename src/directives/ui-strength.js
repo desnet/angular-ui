@@ -1,7 +1,7 @@
 
 /* сложность пароля */
 
-angular.module('directives', ['ng']).directive('uiStrength', function() {
+uis.directive('uiStrength', function() {
     return {
         restrict: 'A',
         replace: true,

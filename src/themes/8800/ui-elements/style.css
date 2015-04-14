@@ -1,0 +1,431 @@
+
+/* Дерево */
+ul.b-tree,
+ul.b-tree ul {
+    display: block;
+    list-style: none;
+}
+ul.b-tree ul {
+    display: none;
+    margin: 10px 0 10px 18px;
+}
+ul.b-tree li,
+ul.b-tree li.open > ul {
+    display: block;
+}
+ul.b-tree li.leaf {
+    margin-left: 18px;
+}
+ul.b-tree li {
+    white-space: nowrap;
+    margin-bottom: 5px;
+}
+ul.b-tree li > i,
+ul.b-tree li > span,
+ul.b-tree li > input[type=checkbox] {
+    display: inline-block;
+    vertical-align: middle;
+    white-space: normal;
+}
+ul.b-tree li > i {
+    cursor: pointer;
+    color: #57068C;
+}
+ul.b-tree li > i:hover {
+    color: #5C0A96;
+}
+ul.b-tree li > i:active {
+    color: #520084;
+}
+
+/* вкладки */
+nav.b-tabs > ul {
+    background-color: #e6e6e6;
+}
+nav.b-tabs > ul li {
+    display: block;
+    float: left;
+    margin-left: 10px;
+}
+nav.b-tabs > ul li:first-child {
+    margin-left: 0;
+}
+nav.b-tabs > ul a {
+    display: block;
+    padding: 10px;
+    color: #000000;
+    font-size: 1.16em;
+    text-decoration: none;
+    background-color: #f3f3f3;
+}
+nav.b-tabs > ul a:hover,
+nav.b-tabs > ul a.active {
+    background-color: #ffffff;
+}
+nav.b-tabs > section {
+    display: none;
+    padding: 20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+nav.b-tabs > section.active {
+    display: block;
+}
+
+/* таблички */
+table.b-table {
+    width: 100%;
+}
+table.b-table tr th {
+    color: #9c9c9c;
+    background-color: inherit;
+    border-bottom: 3px solid #dadada;
+    padding: 15px 10px 10px 0;
+}
+table.b-table td {
+    color: #000000;
+    border-bottom: 1px solid #dadada;
+    padding: 10px 10px 10px 0;
+}
+table.b-table td:first-child {
+    border-left: 1px solid #dadada;
+    padding-left: 10px;
+}
+table.b-table td:last-child {
+    border-right: 1px solid #dadada;
+}
+table.b-table tr:nth-child(odd) td {
+    background-color: #f9f9f9;
+}
+table.b-table tr.active td,
+table.b-table-hover tr:hover td {
+    background-color: #5C0A96;
+    color: #ffffff;
+}
+table.b-table tr.success td {
+    background-color: #dff0d8;
+    color: #838383;
+}
+table.b-table tr.warning td {
+    background-color: #fcf8e3;
+    color: #838383;
+}
+table.b-table tr.danger td {
+    background-color: #F2DEE3;
+    color: #838383;
+}
+table.b-table tr.info td {
+    background-color: #d9edf7;
+    color: #838383;
+}
+table.b-table tr.disabled td {
+    color: #9c9c9c;
+}
+
+fieldset.b-fieldset {
+    border: 1px #dcdcdc solid;
+    padding: 1em;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+fieldset.b-fieldset.flat {
+    background-color: #ffffff;
+    border: 0;
+}
+
+fieldset.b-fieldset > legend {
+    background-color: #57068C;
+    color: #ffffff;
+    padding: 2px 20px;
+    font-size: 0.75em;
+    position: absolute;
+    top: -15px;
+    left: -1px;
+    text-transform: uppercase;
+}
+
+/* Кнопки, ссылки */
+a.dashed {
+    display: inline-block;
+    text-decoration: none;
+    line-height: 1em;
+    border-bottom: 1px #000000 dashed;
+}
+a.dashed:hover {
+    border-bottom: 0;
+    text-decoration: none;
+}
+
+a.button,
+button.button,
+div.ui-upload-button,
+input[type=button].button {
+    display: inline-block;
+    margin: 0;
+    padding: 10px;
+    line-height: 1em;
+    font-size: 1em;
+    background-color: #f2f2f2;
+    border: 1px #999999 solid;
+    vertical-align: middle;
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a.button.active,
+button.button.active,
+div.ui-upload-button.active,
+input[type=button].button.active,
+a.button:focus,
+button.button:focus,
+input[type=button].button:focus {
+    border-color: #57068C;
+    background-color: #57068C;
+    color: #ffffff;
+}
+
+a.button:hover,
+button.button:hover,
+div.ui-upload-button:hover,
+input[type=button].button:hover {
+    border-color: #5C0A96;
+    background-color: #5C0A96;
+    color: #ffffff;
+}
+
+a.button:active,
+button.button:active,
+div.ui-upload-button:active,
+input[type=button].button:active {
+    border-color: #520084;
+    background-color: #520084;
+    color: #ffffff;
+}
+
+a.button.disabled,
+button.button.disabled,
+button.button[disabled],
+div.ui-upload-button.disabled,
+div.ui-upload-button[disabled],
+input[disabled].button,
+a.button.disabled:hover,
+button.button.disabled:hover,
+button.button[disabled]:hover,
+input[disabled].button:hover
+a.button.disabled:focus,
+button.button.disabled:focus {
+    border-color: #bcbcbc;
+    background-color: #f2f2f2;
+    color: #bcbcbc;
+    cursor: not-allowed;
+}
+
+a.button.arrow,
+button.button.arrow,
+input[type=button].button.arrow {
+    font-size: 2em;
+    display: inline-block;
+    line-height: 28px;
+    text-align: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* Инпуты */
+input[type=text],
+input[type=number],
+input[type=search],
+input[type=password] {
+    color: #727171;
+    width: 100%;
+    height: 36px;
+    padding: 0 10px;
+    font-size: 1em;
+    border: 1px #999999 solid;
+    box-sizing: border-box;
+    outline: none;
+}
+input[type=password] {
+    font-size: 20px;
+    padding: 0 10px;
+    line-height: 37px;
+}
+input[type=text].sm,
+input[type=number].sm,
+input[type=password].sm {
+    width: 100px;
+}
+input[disabled] {
+    border-color: #dcdcdc;
+    background-color: #fdfdfd;
+    color: #bcbcbc;
+    cursor: not-allowed;
+}
+textarea {
+    color: #727171;
+    border: 1px #999999 solid;
+    box-sizing: border-box;
+}
+
+
+input.ng-invalid,
+.list-box.ng-invalid {
+    border: 1px #ca0800 solid;
+}
+.ui-checkbox.ng-invalid > i {
+    color: #ca0800;
+}
+
+/* иконки в полях */
+.field-icon {
+    display: inline-block;
+    position: relative;
+}
+.field-icon-left > input {
+    padding-left: 2em;
+}
+.field-icon-left.box > var,
+.field-icon-left.combo-box > var {
+    padding-left: 1.2em;
+}
+.field-icon-left > i {
+    left: 6px;
+}
+.field-icon-right > input {
+    padding-right: 2em;
+}
+.field-icon-right > i {
+    right: 6px;
+}
+.field-icon-left > i,
+.field-icon-right > i {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    line-height: 36px;
+}
+
+/* надписи к полям */
+label,
+div.label {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+label > div,
+label > input[type=text],
+label > input[type=number],
+label > input[type=password],
+label > .button,
+label > .ui-list-box,
+label > .ui-combo-box,
+label > .ui-highlight,
+label > textarea,
+div.label > div,
+div.label > input[type=text],
+div.label > input[type=number],
+div.label > input[type=password],
+div.label > .button,
+div.label > .ui-list-box,
+div.label > .ui-combo-box,
+div.label > .ui-highlight,
+div.label > textarea {
+    display: block;
+    width:100%;
+    margin-top: 5px;
+}
+
+/* Вспомогательные классы */
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+.text-left {
+    text-align: left;
+}
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
+}
+.text-middle {
+    vertical-align: middle;
+}
+.text-top {
+    vertical-align: top;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.m05 {margin: 0.5em !important;}
+.m1 {margin: 1em !important;}
+.m15 {margin: 1.5em !important;}
+.m2 {margin: 2em !important;}
+.m3 {margin: 3em !important;}
+
+.mt05 {margin-top: 0.5em !important;}
+.mt1 {margin-top: 1em !important;}
+.mt2 {margin-top: 2em !important;}
+.mt3 {margin-top: 3em !important;}
+.mt3 {margin-top: 4em !important;}
+
+.mb05 {margin-bottom: 0.5em !important;}
+.mb1 {margin-bottom: 1em !important;}
+.mb2 {margin-bottom: 2em !important;}
+.mb3 {margin-bottom: 3em !important;}
+
+.ml1 {margin-left: 1em !important;}
+.m115 {margin-left: 1.5em !important;}
+.ml2 {margin-left: 2em !important;}
+.ml3 {margin-left: 3em !important;}
+
+.mr05 {margin-right: 0.5em !important;}
+.mr1 {margin-right: 1em !important;}
+.mr2 {margin-right: 2em !important;}
+.mr3 {margin-right: 3em !important;}
+
+.p1 {padding: 1em !important;}
+.p15 {padding: 1.5em !important;}
+.pl1 {padding-left: 1em !important;}
+.pl2 {padding-left: 2em !important;}
+
+.clearfix:after {
+    display: block;
+    content: ".";
+    width: 0;
+    height: 0;
+    font-size: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clearfix {
+    display: inline-block;
+}
+/* Hides from IE-mac \*/
+* html .clearfix {
+    height: 1%;
+}
+.clearfix {
+    display: block;
+}
+/* End hide from IE-mac */

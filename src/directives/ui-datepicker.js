@@ -1,7 +1,7 @@
 
 /* date-picker */
 
-angular.module('directives', ['ng']).directive('uiDatepicker', ['$document', function($document) {
+uis.directive('uiDatepicker', ['$document', function($document) {
     return {
         restrict: "AE",
         transclude: true,

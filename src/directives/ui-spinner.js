@@ -1,7 +1,7 @@
 
 /* ui-spinner */
 
-angular.module('directives', ['ng']).directive('uiSpinner', [function() {
+uis.directive('uiSpinner', [function() {
     return {
         require: 'ngModel',
         restrict: 'AE',

@@ -1,7 +1,7 @@
 
 /* применяется для группировки строк таблиц */
 
-angular.module('directives', ['ng']).directive('uiRowGroup', [function() {
+uis.directive('uiRowGroup', [function() {
     return {
         restrict: 'AE',
         link: function ($scope, element, attr) {

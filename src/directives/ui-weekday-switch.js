@@ -1,7 +1,7 @@
 
 /* uiWeekdayInterval */
 
-angular.module('directives', ['ng']).directive('uiWeekDay', ['$translate', function($translate) {
+uis.directive('uiWeekDay', ['$translate', function($translate) {
 
     var weekdays = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'],
         firstWeekday = weekdays.indexOf($translate.instant('WEEK.FIRST_DAY'));

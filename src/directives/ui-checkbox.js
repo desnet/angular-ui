@@ -1,14 +1,14 @@
 
 /* ui-checkbox */
 
-angular.module('directives', ['ng']).directive('uiCheckbox', function () {
+uis.directive('uiCheckbox', function () {
     return {
         priority: 0,
         require: '^ngModel',
         restrict: 'EA',
         replace: true,
         transclude: true,
-        templateUrl: "ui-checkbox.html",
+        templateUrl: "ui-combo-box.html",
         scope: {
             value: '=',
             marked: '=uiMarked'

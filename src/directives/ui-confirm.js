@@ -1,7 +1,7 @@
 
 /* uiConfirm */
 
-angular.module('directives', ['ng']).directive('uiConfirm', ['$document', '$compile', '$templateCache', function($document, $compile, $templateCache) {
+uis.directive('uiConfirm', ['$document', '$compile', '$templateCache', function($document, $compile, $templateCache) {
 
     function Confirm(scope) {
 

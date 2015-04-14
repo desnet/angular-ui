@@ -1,7 +1,7 @@
 
 /* ui-time */
 
-angular.module('directives', ['ng']).directive('uiTime', ['$filter', function($filter) {
+uis.directive('uiTime', ['$filter', function($filter) {
     return {
         require: 'ngModel',
         restrict: 'AE',

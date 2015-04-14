@@ -1,7 +1,9 @@
+(function(){var uis = angular.module('ui', ['ui.tpls', 'ng']);
+
 
 /* ui-busy */
 
-angular.module('directives', ['ng']).directive('uiBusy', ['$timeout', '$templateCache', function($timeout) {
+uis.directive('uiBusy', ['$timeout', '$templateCache', function($timeout, $templateCache) {
     return {
         restrict: 'A', //attribute or element
         replace: false,
@@ -50,7 +52,7 @@ angular.module('directives', ['ng']).directive('uiBusy', ['$timeout', '$template
 
 /* ui-captcha */
 
-angular.module('directives', ['ng']).directive('uiCaptcha', [function() {
+uis.directive('uiCaptcha', [function() {
 
     // класс капчи
     function Captcha() {
@@ -115,14 +117,14 @@ angular.module('directives', ['ng']).directive('uiCaptcha', [function() {
 
 /* ui-checkbox */
 
-angular.module('directives', ['ng']).directive('uiCheckbox', function () {
+uis.directive('uiCheckbox', function () {
     return {
         priority: 0,
         require: '^ngModel',
         restrict: 'EA',
         replace: true,
         transclude: true,
-        templateUrl: "ui-checkbox.html",
+        templateUrl: "ui-combo-box.html",
         scope: {
             value: '=',
             marked: '=uiMarked'
@@ -157,62 +159,50 @@ angular.module('directives', ['ng']).directive('uiCheckbox', function () {
 
 /* uiCombo */
 
-angular.module('directives', ['ng']).directive('uiCombo', ['$document', function($document) {
+uis.directive('uiComboBox', ['$document', function($document) {
     return {
-        restrict: 'AE',
+        restrict: 'E',
+        require: '^ngModel',
+        replace: true,
+        templateUrl: "ui-combobox.html",
         scope: {
-            value: '=uiModel'
+            options: '=uiOptions'
         },
-        link: function($scope, element, attrs) {
+        link: function($scope, element, attrs, ngModel) {
 
-            var variable = element.children('var');
+            $scope.nodes = $scope.options && $scope.options.data;
+            $scope.isDisabled = $scope.options && $scope.options.disabled;
+            $scope.selected = {};
 
-            $scope.setValue = function(value) {
-
-                if(!value) {
-                    return true;
-                }
-
-                element.find("[data-value]").each(function() {
-                    var $this = $(this);
-                    if($this.data('value')==value) {
-
-                        $this.addClass('active');
-                        variable.html($this.html());
-
-                        // изменяем модель только если данные изменились
-                        if(typeof $scope.value != 'undefined' && $scope.value!=value) {
-                            $scope.$apply(function() {
-                                $scope.value = value;
-                            });
-                        }
-                    }
-                    else {
-                        $this.removeClass('active');
-                    }
-                });
-            };
-
-            $scope.$watch('value', $scope.setValue);
-
-            element.on('click', function(e) {
+            // выбор елемента
+            $scope.open = function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                if($scope.disabled) return false;
-                $scope.setValue($(e.target).data('value'));
-                element.toggleClass('open');
-                $document.triggerHandler('click', this);
-            });
+                $scope.isOpen = $scope.isDisabled ? false : !$scope.isOpen;
+            };
 
-            $document.on('click', function(e, el) {
-                if(el!=element[0] && element.hasClass('open')) {
-                    element.removeClass('open');
+            // выбор елемента
+            $scope.select = function(node) {
+                $scope.selected = node;
+                ngModel.$setViewValue(node.value);
+            };
+
+            // выбираем значение при рендере
+            ngModel.$render = function () {
+                for(var i=0; i<$scope.nodes.length; i++) {
+                    if($scope.nodes[i].value==ngModel.$viewValue) {
+                        $scope.selected = $scope.nodes[i];
+                        break;
+                    }
                 }
-            });
+            };
 
-            // отключение
-            attrs.$observe('disabled', function(disabled) {
-                $scope.disabled = disabled;
+            // скрываем при клике по документу
+            $document.on('click', function(e) {
+                if($scope.isOpen) {
+                    $scope.isOpen = false;
+                    $scope.$apply();
+                }
             });
         }
     };
@@ -221,7 +211,7 @@ angular.module('directives', ['ng']).directive('uiCombo', ['$document', function
 
 /* сравнение паролей */
 
-angular.module('directives', ['ng']).directive("uiCompareTo", function() {
+uis.directive("uiCompareTo", function() {
     return {
         require: "ngModel",
         scope: {
@@ -243,7 +233,7 @@ angular.module('directives', ['ng']).directive("uiCompareTo", function() {
 
 /* uiConfirm */
 
-angular.module('directives', ['ng']).directive('uiConfirm', ['$document', '$compile', '$templateCache', function($document, $compile, $templateCache) {
+uis.directive('uiConfirm', ['$document', '$compile', '$templateCache', function($document, $compile, $templateCache) {
 
     function Confirm(scope) {
 
@@ -315,7 +305,7 @@ angular.module('directives', ['ng']).directive('uiConfirm', ['$document', '$comp
 
 /* date-picker */
 
-angular.module('directives', ['ng']).directive('uiDatepicker', ['$document', function($document) {
+uis.directive('uiDatepicker', ['$document', function($document) {
     return {
         restrict: "AE",
         transclude: true,
@@ -557,7 +547,7 @@ angular.module('directives', ['ng']).directive('uiDatepicker', ['$document', fun
 
 /* uiFormError */
 
-angular.module('directives', ['ng']).directive('uiFormError', ['$document', '$parse', '$compile', '$translate', 'uiTooltipDirective', function($document, $parse, $compile, $translate, d) {
+uis.directive('uiFormError', ['$document', '$parse', '$compile', '$translate', 'uiTooltipDirective', function($document, $parse, $compile, $translate, d) {
     return angular.extend({}, d[0], {
         priority: 0,
         require: ['^form', '^?ngModel', 'uiTooltip'],
@@ -660,9 +650,25 @@ angular.module('directives', ['ng']).directive('uiFormError', ['$document', '$pa
 }]);
 
 
+/* uiHt */
+
+uis.directive('uiHighlight', ['$window', function($window) {
+    return {
+        restrict: 'AE',
+        replace: true,
+        transclude: true,
+        templateUrl: 'ui-highlight.html',
+        link: function (scope, element, attr) {
+            var el = element.children();
+            //el.html(el.html().replace(/</g, '&lt;').replace(/>/g, '&gt;'));
+            $window.hljs.highlightBlock(el[0]);
+        }
+    };
+}]);
+
 /* присваивает innerHtml элемента в переменную */
 
-angular.module('directives', ['ng']).directive('uiHtml', ['$compile', '$timeout', function($compile, $timeout) {
+uis.directive('uiHtml', ['$compile', '$timeout', function($compile, $timeout) {
     return {
         restrict: 'AE',
         link: function ($scope, element, attr) {
@@ -679,7 +685,7 @@ angular.module('directives', ['ng']).directive('uiHtml', ['$compile', '$timeout'
 
 
 /* изолированая вложенная форма */
-angular.module('directives', ['ng']).directive('isolatedForm', function(){
+uis.directive('isolatedForm', function(){
     return {
         restrict: 'A',
         require: 'form',
@@ -701,7 +707,7 @@ angular.module('directives', ['ng']).directive('isolatedForm', function(){
 
 /* ui-list-box */
 
-angular.module('directives', ['ng']).directive('uiList', [function() {
+uis.directive('uiList', [function() {
     return {
         require: '^ngModel',
         restrict: 'AE',
@@ -741,7 +747,7 @@ angular.module('directives', ['ng']).directive('uiList', [function() {
 
 /* uiModal */
 
-angular.module('directives', ['ng']).directive('uiModal', ['$document', function($document) {
+uis.directive('uiModal', ['$document', function($document) {
     return {
         restrict: 'AE',
         replace: true,
@@ -764,9 +770,111 @@ angular.module('directives', ['ng']).directive('uiModal', ['$document', function
 }]);
 
 
+/* uiNoBind */
+
+(function(angular, module) {
+
+    var timeoutWait = 100;
+    var destroyParam = 'noBind-DestroyMe';
+
+    var ctrlBind = function($parse, $timeout) {
+        return function($scope) {
+            var resolveValueWithoutWatching = function(varExpression, func) {
+                var workingScope = this;
+                // varExpression.exp is passed as the 'old' value
+                //   so that angular can remove the expression text from an
+                //   element's attributes, such as when using an expression for the class.
+                if (!func && typeof varExpression === 'function') {
+                    varExpression();
+                } else {
+                    var resolvedVal = $parse(varExpression)(workingScope);
+                    if (resolvedVal === null || resolvedVal === undefined || resolvedVal === 0) {
+                        // Value is not set, wait for it to be set.
+                        $timeout(function() {
+                            resolveValueWithoutWatching.apply(workingScope, [varExpression, func]);
+                        }, timeoutWait, false);
+                    } else {
+                        func(resolvedVal, varExpression.exp);
+                        $scope[destroyParam] = true;
+                    }
+                }
+            };
+            $scope.$watch = resolveValueWithoutWatching;
+        };
+    };
+
+    var destroyTheScope = function($timeout, scope) {
+        var scopeDestroyFn = function() {
+            if (scope[destroyParam]) {
+                $timeout(function() {
+                    scope.$destroy();
+                }, 0, true);
+            }
+            else {
+                $timeout(scopeDestroyFn, timeoutWait, false);
+            }
+        };
+        scopeDestroyFn();
+    };
+
+    module.directive('uiNoBind', function ($parse, $timeout) {
+        return {
+            restrict: 'A',
+            priority: 999999,
+            scope: true,
+            controller: ctrlBind($parse, $timeout),
+            link: {
+                pre: function(scope, element, attrs) {
+                },
+                post: function(scope, element, attrs) {
+                    element.removeClass('ng-binding');
+                    element.removeClass('ng-scope');
+                    element.find('*').removeClass('ng-binding');
+                    element.find('*').removeClass('ng-scope');
+
+                    destroyTheScope($timeout, scope);
+                }
+            }
+        };
+    });
+
+    module.directive('uiNoBindChildren', function ($parse, $timeout, $compile) {
+        return {
+            restrict: 'A',
+            priority: 999999,
+            compile: function($element, $attrs) {
+
+                var childScope,
+                    nestedHtml = $element[0].innerHTML;
+
+                $element.empty();
+
+                return {
+                    pre: function(scope, element, attrs) {
+                        // Create child scope
+                        childScope = scope.$new();
+                        // Apply controller to scope
+                        ctrlBind($parse, $timeout)(childScope);
+
+                        var childElements = $compile('<div>' + nestedHtml + '</div>')(childScope).children();
+                        element.append(childElements);
+                    },
+                    post: function(scope, element, attrs) {
+                        element.find('*').removeClass('ng-binding');
+                        element.find('*').removeClass('ng-scope');
+
+                        destroyTheScope($timeout, childScope);
+                    }
+                };
+            }
+        };
+    });
+
+})(angular, uis);
+
 /* ui-notify */
 
-angular.module('directives', ['ng']).directive('uiNotify', ['$timeout', function($timeout) {
+uis.directive('uiNotify', ['$timeout', function($timeout) {
     return {
         restrict: 'AE',
         replace: true,
@@ -827,7 +935,7 @@ angular.module('directives', ['ng']).directive('uiNotify', ['$timeout', function
 
 /* применяется для группировки строк таблиц */
 
-angular.module('directives', ['ng']).directive('uiRowGroup', [function() {
+uis.directive('uiRowGroup', [function() {
     return {
         restrict: 'AE',
         link: function ($scope, element, attr) {
@@ -873,7 +981,7 @@ angular.module('directives', ['ng']).directive('uiRowGroup', [function() {
 
 /* uiScrollBar */
 
-angular.module('directives', ['ng']).directive('uiScrollBar', function() {
+uis.directive('uiScrollBar', function() {
     return {
         restrict: 'A',
         link: function ($scope, element) {
@@ -885,7 +993,7 @@ angular.module('directives', ['ng']).directive('uiScrollBar', function() {
 
 /* ui-spinner */
 
-angular.module('directives', ['ng']).directive('uiSpinner', [function() {
+uis.directive('uiSpinner', [function() {
     return {
         require: 'ngModel',
         restrict: 'AE',
@@ -933,7 +1041,7 @@ angular.module('directives', ['ng']).directive('uiSpinner', [function() {
 
 /* сложность пароля */
 
-angular.module('directives', ['ng']).directive('uiStrength', function() {
+uis.directive('uiStrength', function() {
     return {
         restrict: 'A',
         replace: true,
@@ -1022,12 +1130,12 @@ angular.module('directives', ['ng']).directive('uiStrength', function() {
 
 /* ui-switch */
 
-angular.module('directives', ['ng']).directive('uiSwitch', [function() {
+uis.directive('uiSwitcher', ['$timeout', function($timeout) {
     return {
         require: 'ngModel',
         restrict: 'AE',
         replace: true,
-        templateUrl: "ui-switch.html",
+        templateUrl: "ui-switcher.html",
         scope: {},
         link: function(scope, element, attrs, ngModel) {
             function updateModel() {
@@ -1052,7 +1160,7 @@ angular.module('directives', ['ng']).directive('uiSwitch', [function() {
 
 /* ui-time */
 
-angular.module('directives', ['ng']).directive('uiTime', ['$filter', function($filter) {
+uis.directive('uiTime', ['$filter', function($filter) {
     return {
         require: 'ngModel',
         restrict: 'AE',
@@ -1109,7 +1217,7 @@ angular.module('directives', ['ng']).directive('uiTime', ['$filter', function($f
 
 /* ui-tooltip */
 
-var module = angular.module('directives', ['ng']).directive('uiTooltip', [
+uis.directive('uiTooltip', [
     '$window', '$document', '$compile', '$parse', '$timeout', '$sce', '$templateCache',
     function($window, $document, $compile, $parse, $timeout, $sce, $templateCache) {
 
@@ -1347,160 +1455,159 @@ var module = angular.module('directives', ['ng']).directive('uiTooltip', [
 
 /* uiTreeView, uiTreeViewChildren */
 
-angular.module('directives', ['ng'])
-    .directive('uiTreeView', ['$compile', function($compile) {
-        return {
-            restrict: 'AE',
-    //        template:
-    //        '<ul>' +
-    //            '<li ng-repeat="node in nodes" ui-tree-view-children="node." ng-class="{open: node.$expand}">' +
-    //                '<div ui-tree-view-children></div>' +
-    //            '</li>' +
-    //        '</ul>',
-            scope: {
-                treeView: '=uiTreeView',
-                nodes: '=uiModel'
-            },
-            controller: function($scope) {
+uis.directive('uiTreeView', ['$compile', function($compile) {
+    return {
+        restrict: 'AE',
+//        template:
+//        '<ul>' +
+//            '<li ng-repeat="node in nodes" ui-tree-view-children="node." ng-class="{open: node.$expand}">' +
+//                '<div ui-tree-view-children></div>' +
+//            '</li>' +
+//        '</ul>',
+        scope: {
+            treeView: '=uiTreeView',
+            nodes: '=uiModel'
+        },
+        controller: function($scope) {
 
-                $scope.config = angular.extend({
-                    children: 'children',
-                    onChange: angular.noop
-                }, $scope.treeView);
+            $scope.config = angular.extend({
+                children: 'children',
+                onChange: angular.noop
+            }, $scope.treeView);
 
-                $scope.toggleNode = function toggleNode(node) {
-                    node.$expand = !node.$expand;
-                };
+            $scope.toggleNode = function toggleNode(node) {
+                node.$expand = !node.$expand;
+            };
 
-                function markParents() {
+            function markParents() {
 
-                    /*jshint validthis:true */
-                    var scope = this.$parent.$parent,
-                        marked = false;
+                /*jshint validthis:true */
+                var scope = this.$parent.$parent,
+                    marked = false;
 
-                    if(scope.node && this.depth>0) {
-                        for(var i=0; i<scope.node[$scope.config.children].length; i++) {
-                            if(scope.node[$scope.config.children][i].$checked || scope.node[$scope.config.children][i].$marked) {
-                                marked = true;
-                                break;
-                            }
-                        }
-                        scope.node.$marked = marked;
-
-                        if(scope.depth>0) {
-                            markParents.call(scope);
+                if(scope.node && this.depth>0) {
+                    for(var i=0; i<scope.node[$scope.config.children].length; i++) {
+                        if(scope.node[$scope.config.children][i].$checked || scope.node[$scope.config.children][i].$marked) {
+                            marked = true;
+                            break;
                         }
                     }
-                }
+                    scope.node.$marked = marked;
 
-                function checkParents() {
-
-                    /*jshint validthis:true */
-                    var scope = this.$parent.$parent,
-                        checked = false;
-
-                    if(scope.node && this.depth>0) {
-                        for(var i=0; i<scope.node[$scope.config.children].length; i++) {
-                            if(scope.node[$scope.config.children][i].$checked) {
-                                checked = true;
-                                break;
-                            }
-                        }
-                        scope.node.$checked = checked;
-                        $scope.config.onChange.call(scope.node);
-
-                        if(scope.depth>0) {
-                            $scope.checkParents.call(scope);
-                        }
+                    if(scope.depth>0) {
+                        markParents.call(scope);
                     }
                 }
-
-                $scope.checkChildren = function() {
-                    var scope = this;
-                    angular.forEach(scope.node[$scope.config.children], function(c) {
-                        c.$checked = scope.node.$checked;
-                        $scope.config.onChange.call(c);
-                        $scope.checkChildren.call(scope, c);
-                    });
-                };
-
-                $scope.checkParents = function() {
-                    $scope.config.onChange.call(this.node);
-                    checkParents.call(this);
-                };
-
-                $scope.checkAll = function() {
-                    $scope.checkChildren.call(this);
-                    $scope.config.onChange.call(this.node);
-                    checkParents.call(this);
-                };
-
-                $scope.markParents = function() {
-                    $scope.config.onChange.call(this.node);
-                    markParents.call(this);
-                };
-
-            },
-            compile: function (tElement) {
-
-                // получаем шаблон для нод
-                var template = angular.element(tElement.html());
-
-                // удаляем содержимое тега
-                tElement.contents().remove();
-
-                return function ($scope, iElement, iAttr, ctrl) {
-
-                    // навешиваем системные атрибуты
-                    template.attr({
-                        'ng-repeat': 'node in nodes',
-                        'ui-tree-view-children': $scope.config.children
-                    });
-
-                    // запоминаем шаблон для дочерних узлов
-                    ctrl.$tpl = angular.element('<ul></ul>').append(template);
-
-                    // чтобы в дочерних нодах можно было обратиться к родительской ноде дерева
-                    $scope.$ps = $scope.$parent;
-
-                    // это root
-                    $scope.depth = 0;
-
-                    // компилируем root уровень
-                    iElement.append($compile(template.clone())($scope));
-
-                };
             }
-        };
-    }])
-    .directive('uiTreeViewChildren', ['$compile', '$timeout', function ($compile, $timeout) {
-        return {
-            restrict: 'A',
-            require: '^uiTreeView',
-            link: function ($scope, element, attrs, ctrl) {
 
-                //достаем дочерние элементы
-                var newScope = $scope.$new();
+            function checkParents() {
 
-                // передаем детей
-                newScope.nodes = $scope.node[attrs.uiTreeViewChildren];
-                newScope.depth = $scope.depth + 1;
+                /*jshint validthis:true */
+                var scope = this.$parent.$parent,
+                    checked = false;
 
-                // если дети есть то рисуем их
-                if (newScope.nodes !== null && newScope.nodes.length > 0) {
-                    $timeout(function() {
-                        element.append($compile(ctrl.$tpl.clone())(newScope));
-                    }, 0);
+                if(scope.node && this.depth>0) {
+                    for(var i=0; i<scope.node[$scope.config.children].length; i++) {
+                        if(scope.node[$scope.config.children][i].$checked) {
+                            checked = true;
+                            break;
+                        }
+                    }
+                    scope.node.$checked = checked;
+                    $scope.config.onChange.call(scope.node);
+
+                    if(scope.depth>0) {
+                        $scope.checkParents.call(scope);
+                    }
                 }
             }
-        };
-    }]);
+
+            $scope.checkChildren = function() {
+                var scope = this;
+                angular.forEach(scope.node[$scope.config.children], function(c) {
+                    c.$checked = scope.node.$checked;
+                    $scope.config.onChange.call(c);
+                    $scope.checkChildren.call(scope, c);
+                });
+            };
+
+            $scope.checkParents = function() {
+                $scope.config.onChange.call(this.node);
+                checkParents.call(this);
+            };
+
+            $scope.checkAll = function() {
+                $scope.checkChildren.call(this);
+                $scope.config.onChange.call(this.node);
+                checkParents.call(this);
+            };
+
+            $scope.markParents = function() {
+                $scope.config.onChange.call(this.node);
+                markParents.call(this);
+            };
+
+        },
+        compile: function (tElement) {
+
+            // получаем шаблон для нод
+            var template = angular.element(tElement.html());
+
+            // удаляем содержимое тега
+            tElement.contents().remove();
+
+            return function ($scope, iElement, iAttr, ctrl) {
+
+                // навешиваем системные атрибуты
+                template.attr({
+                    'ng-repeat': 'node in nodes',
+                    'ui-tree-view-children': $scope.config.children
+                });
+
+                // запоминаем шаблон для дочерних узлов
+                ctrl.$tpl = angular.element('<ul></ul>').append(template);
+
+                // чтобы в дочерних нодах можно было обратиться к родительской ноде дерева
+                $scope.$ps = $scope.$parent;
+
+                // это root
+                $scope.depth = 0;
+
+                // компилируем root уровень
+                iElement.append($compile(template.clone())($scope));
+
+            };
+        }
+    };
+}]);
+uis.directive('uiTreeViewChildren', ['$compile', '$timeout', function ($compile, $timeout) {
+    return {
+        restrict: 'A',
+        require: '^uiTreeView',
+        link: function ($scope, element, attrs, ctrl) {
+
+            //достаем дочерние элементы
+            var newScope = $scope.$new();
+
+            // передаем детей
+            newScope.nodes = $scope.node[attrs.uiTreeViewChildren];
+            newScope.depth = $scope.depth + 1;
+
+            // если дети есть то рисуем их
+            if (newScope.nodes !== null && newScope.nodes.length > 0) {
+                $timeout(function() {
+                    element.append($compile(ctrl.$tpl.clone())(newScope));
+                }, 0);
+            }
+        }
+    };
+}]);
 
 
 // произвольная валидация
 // http://angular-ui.github.io/
 
-angular.module('directives', ['ng']).directive('uiValidate', function () {
+uis.directive('uiValidate', function () {
     return {
         restrict: 'A',
         require: 'ngModel',
@@ -1604,7 +1711,7 @@ angular.module('directives', ['ng']).directive('uiValidate', function () {
 
 /* uiWeekdayInterval */
 
-angular.module('directives', ['ng']).directive('uiWeekdayInterval', ['$translate', function($translate) {
+uis.directive('uiWeekdayInterval', ['$translate', function($translate) {
 
     var weekdays = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'],
         firstWeekday = weekdays.indexOf($translate.instant('WEEK.FIRST_DAY'));
@@ -1677,7 +1784,7 @@ angular.module('directives', ['ng']).directive('uiWeekdayInterval', ['$translate
 
 /* uiWeekdayInterval */
 
-angular.module('directives', ['ng']).directive('uiWeekDay', ['$translate', function($translate) {
+uis.directive('uiWeekDay', ['$translate', function($translate) {
 
     var weekdays = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'],
         firstWeekday = weekdays.indexOf($translate.instant('WEEK.FIRST_DAY'));
@@ -1738,3 +1845,4 @@ angular.module('directives', ['ng']).directive('uiWeekDay', ['$translate', funct
         }
     };
 }]);
+})();

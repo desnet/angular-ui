@@ -1,0 +1,29 @@
+<div class="login">
+    <h2 class="mb05">Авторизация</h2>
+    <form>
+        <label class="mb2">
+            Имя пользователя
+            <input type="text" ng-model="auth.login" />
+        </label>
+        <br />
+        <label class="mb1">
+            Пароль
+            <input type="password" ng-model="auth.password" />
+        </label>
+        <br />
+        <label class="mb1">
+            <input type="checkbox" ng-model="auth.remember"> запомнить меня
+        </label>
+        <br />
+        <div class="clearfix">
+            <button ng-click="login()" class="button active pull-right">Авторизоваться</button>
+        </div>
+    </form>
+    <fieldset class="mt3 clearfix">
+        <h2 class="mb1">МегаФон Услуга 8800</h2>
+        <p class="mb05">Данный сервис позволит Клиенту принимать вызовы, сделанные на единый номер формата «8-800-ХХХ-ХХХХ».</p>
+        <p class="mb05">Для абонентов (пользователей услугой), совершающих исходящий вызов на номер формата «8-800-ХХХ-ХХХХ» стоимость вызова не тарифицируется.</p>
+        <p class="mb1">За «приземление» каждого такого вызова на Номера Клиента (или SIP сеть МультиФон) заплатит Клиент, в зависимости от того откуда и куда был совершен звонок, согласно разработанным для данного сервиса тарифам.</p>
+        <a href="#" class="button pull-right">Как подключить услугу</a>
+    </fieldset>
+</div>

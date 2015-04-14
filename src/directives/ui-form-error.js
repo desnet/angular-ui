@@ -1,7 +1,7 @@
 
 /* uiFormError */
 
-angular.module('directives', ['ng']).directive('uiFormError', ['$document', '$parse', '$compile', '$translate', 'uiTooltipDirective', function($document, $parse, $compile, $translate, d) {
+uis.directive('uiFormError', ['$document', '$parse', '$compile', '$translate', 'uiTooltipDirective', function($document, $parse, $compile, $translate, d) {
     return angular.extend({}, d[0], {
         priority: 0,
         require: ['^form', '^?ngModel', 'uiTooltip'],

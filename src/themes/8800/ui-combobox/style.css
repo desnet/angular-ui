@@ -1,0 +1,91 @@
+.ui-combo-box {
+    position: relative;
+    display: inline-block;
+    min-width: 50px;
+    height: 36px;
+    padding: 10px;
+    border: 1px #b6b3b3 solid;
+    background-color: #fafafa;
+    color: #727171;
+    cursor: pointer;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.ui-combo-box:before {
+    display: block;
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #c9c9c9;
+    float: right;
+    margin-top: 5px;
+}
+.ui-combo-box:hover:before {
+    border-top: 6px solid #898989;
+}
+.ui-combo-box var {
+    display: block;
+    font-style: normal;
+    margin-right: 20px;
+    overflow: hidden;
+    height: 1em;
+    white-space: nowrap;
+}
+.ui-combo-box.ui-combo-box-opened ul {
+    display: block;
+}
+.ui-combo-box ul {
+    position: absolute;
+    display: none;
+    max-height: 200px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    clear: both;
+    list-style: none;
+    padding: 0;
+    margin: 10px -11px 0;
+    border: 1px #e2e2e2 solid;
+    z-index: 1;
+    -webkit-box-shadow: 0 0.3125rem 0.625rem rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0.3125rem 0.625rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.3125rem 0.625rem rgba(0, 0, 0, 0.2);
+}
+.ui-combo-box ul li {
+    background-color: #ffffff;
+    display: block;
+    padding: 10px;
+    border-top: 1px #e2e2e2 solid;
+}
+.ui-combo-box ul li:first-child {
+    border-top: 0;
+}
+.ui-combo-box ul li.active {
+    background-color: #fafafa;
+    color: #520084;
+}
+.ui-combo-box ul li:hover {
+    background-color: #57068c;
+    color: #ffffff;
+}
+.ui-combo-box.ui-combo-box-disabled {
+    border-color: #dcdcdc;
+    background-color: #fdfdfd;
+    color: #bcbcbc;
+    cursor: not-allowed;
+}
+.ui-combo-box.ui-combo-box-disabled var {
+    opacity: 0;
+}
+.ui-combo-box.ui-combo-box-disabled:before,
+.ui-combo-box.ui-combo-box-disabled:hover:before {
+    border-top-color: #bcbcbc;
+}

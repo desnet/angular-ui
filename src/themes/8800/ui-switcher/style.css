@@ -1,0 +1,52 @@
+.ui-switcher {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    border: 1px solid #b6b3b3;
+    cursor: pointer;
+    width: 50px;
+    height: 30px;
+    border-radius: 25px;
+}
+
+.ui-switcher.ui-switcher-init {
+    transition: all .5s ease;
+}
+
+.ui-switcher .ui-switcher-button {
+    width: 26px;
+    height: 26px;
+    background: white;
+    display: block;
+    border-radius: 25px;
+    border: 1px solid #b6b3b3;
+    margin-top: 2px;
+    padding: 5px;
+    position: absolute;
+    transition: left .5s ease;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    transform: rotate(90deg);
+    color: #b6b3b3;
+    background-color: #fafafa;
+}
+.ui-switcher.ui-switcher-left .ui-switcher-button {
+    left: 2px;
+}
+.ui-switcher.ui-switcher-right {
+    background: #57068C;
+    border-color: #57068C;
+}
+.ui-switcher.ui-switcher-right:hover {
+    background: #5C0A96;
+    border-color: #5C0A96;
+}
+.ui-switcher.ui-switcher-right .ui-switcher-button {
+    left: 22px;
+    border-color: #482670;
+}

@@ -1,0 +1,24 @@
+<div class="p15">
+    <h3 class="mb1">Отображение древовидной структуры</h3>
+    <ul ui-tree-view ui-model="tree" class="b-tree mb2">
+        <li ng-class="{open: node.$expand, leaf: !node.children.length}">
+            <i class="icon-minus" ng-click="toggleNode(node)" ng-show="node.$expand && node.children.length"></i>
+            <i class="icon-plus" ng-click="toggleNode(node)" ng-show="!node.$expand && node.children.length"></i>
+            <ui-checkbox ui-marked="node.$marked" ng-model="node.$checked" ng-click="markParents(node);"></ui-checkbox>
+            <span>&nbsp; {{ node.name }}</span>
+        </li>
+    </ul>
+    <div class="label" style="width: 100%;">
+        Исходный код:
+        <ui-highlight>
+&lt;ul ui-tree-view ui-model=&quot;tree&quot; class=&quot;b-tree mb2&quot;&gt;
+    &lt;li ng-class=&quot;{open: node.$expand, leaf: !node.children.length}&quot;&gt;
+        &lt;i class=&quot;icon-minus&quot; ng-click=&quot;toggleNode(node)&quot; ng-show=&quot;node.$expand && node.children.length&quot;&gt;&lt;/i&gt;
+        &lt;i class=&quot;icon-plus&quot; ng-click=&quot;toggleNode(node)&quot; ng-show=&quot;!node.$expand && node.children.length&quot;&gt;&lt;/i&gt;
+        &lt;ui-checkbox ui-marked=&quot;node.$marked&quot; ng-model=&quot;node.$checked&quot; ng-click=&quot;markParents(node);&quot;&gt;&lt;/ui-checkbox&gt;
+        &lt;span&gt;&amp;nbsp; {{node.name}}&lt;/span&gt;
+    &lt;/li&gt;
+&lt;/ul&gt;
+        </ui-highlight>
+    </div>
+</div>

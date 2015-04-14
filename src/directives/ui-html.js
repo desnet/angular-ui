@@ -1,7 +1,7 @@
 
 /* присваивает innerHtml элемента в переменную */
 
-angular.module('directives', ['ng']).directive('uiHtml', ['$compile', '$timeout', function($compile, $timeout) {
+uis.directive('uiHtml', ['$compile', '$timeout', function($compile, $timeout) {
     return {
         restrict: 'AE',
         link: function ($scope, element, attr) {

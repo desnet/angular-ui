@@ -1,6 +1,6 @@
 
 /* изолированая вложенная форма */
-angular.module('directives', ['ng']).directive('isolatedForm', function(){
+uis.directive('isolatedForm', function(){
     return {
         restrict: 'A',
         require: 'form',

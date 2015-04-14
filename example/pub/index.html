@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title ng-bind="'МАТС - ' + $state.current.name"></title>
+
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/icons.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/lib/angular-ui/themes/8800.css" />
+    <link rel="stylesheet" type="text/css" href="/lib/highlight/styles/default.css">
+
+    <script type="text/javascript" src="/lib/bowser/bowser.min.js"></script>
+    <script type="text/javascript">
+        if (
+                (bowser.msie && bowser.version < 9) ||
+                (bowser.chrome && bowser.version < 39) ||
+                (bowser.firefox && bowser.version < 29) ||
+                (bowser.safari && bowser.version < 8) ||
+                (bowser.opera && bowser.version < 15) ||
+                (bowser.ios && bowser.osversion && bowser.osversion.split(".")[0] < 6) ||
+                (bowser.blackberry && bowser.version < 10.1)
+                ) {
+            location.href="/old-browser.html";
+        }
+    </script>
+
+</head>
+<body ui-busy="loader">
+    <div class="body-wrapper">
+        <section>
+            <header class="clearfix">
+                <a href="/" class="logo pull-left">МАТС МегаФон</a>
+                <a href="javascript: " ng-click="logout()" class="pull-right">Выход</a>
+            </header>
+            <nav class="main">
+                <ul class="clearfix">
+                    <li><a ui-sref="tabs" ui-sref-active="active">Вкладки</a></li>
+                    <li><a ui-sref="table" ui-sref-active="active">Таблица</a></li>
+                    <li><a ui-sref="tree" ui-sref-active="active">Дерево</a></li>
+                    <li><a ui-sref="form" ui-sref-active="active">Форма</a></li>
+                    <!--<li><a ui-sref="statistics" ui-sref-active="active">Статистика</a></li>-->
+                    <!--<li><a ui-sref="system" ui-sref-active="active">Система</a></li>-->
+                </ul>
+            </nav>
+            <div ui-view>
+            </div>
+        </section>
+        <footer>© <span ng-bind="timestamp | date:'yyyy'"></span> ОАО «МегаФон»</footer>
+    </div>
+    <script type="text/javascript" src="/lib/highlight/highlight.pack.js"></script>
+    <script type="text/javascript" src="/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="/lib/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/lib/angular/angular-translate.min.js"></script>
+    <script type="text/javascript" src="/lib/angular/angular-translate-static.min.js"></script>
+    <script type="text/javascript" src="/lib/angular/angular-animate.min.js"></script>
+    <script type="text/javascript" src="/lib/angular/angular-resource.min.js"></script>
+    <script type="text/javascript" src="/lib/angular/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="/lib/angular/angular-cookies.min.js"></script>
+    <script type="text/javascript" src="/js/app.js"></script>
+    <script type="text/javascript" src="/js/controllers.js"></script>
+    <script type="text/javascript" src="/js/filters.js"></script>
+    <script type="text/javascript" src="/js/services.js"></script>
+    <script type="text/javascript" src="/js/directives.js"></script>
+    <script type="text/javascript" src="/lib/angular-ui/angular-ui.js"></script>
+    <script type="text/javascript" src="/lib/angular-ui/themes/8800.js"></script>
+</body>
+</html>

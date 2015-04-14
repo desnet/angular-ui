@@ -1,7 +1,7 @@
 
 /* ui-tooltip */
 
-var module = angular.module('directives', ['ng']).directive('uiTooltip', [
+uis.directive('uiTooltip', [
     '$window', '$document', '$compile', '$parse', '$timeout', '$sce', '$templateCache',
     function($window, $document, $compile, $parse, $timeout, $sce, $templateCache) {
 

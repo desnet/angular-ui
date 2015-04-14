@@ -1,7 +1,7 @@
 
 /* ui-list-box */
 
-angular.module('directives', ['ng']).directive('uiList', [function() {
+uis.directive('uiList', [function() {
     return {
         require: '^ngModel',
         restrict: 'AE',

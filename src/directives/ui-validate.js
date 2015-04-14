@@ -2,7 +2,7 @@
 // произвольная валидация
 // http://angular-ui.github.io/
 
-angular.module('directives', ['ng']).directive('uiValidate', function () {
+uis.directive('uiValidate', function () {
     return {
         restrict: 'A',
         require: 'ngModel',

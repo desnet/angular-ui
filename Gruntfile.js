@@ -79,9 +79,13 @@ module.exports = function(grunt) {
     
     concat: {
         js: {
+    	    options: {
+    		banner: '(function(){',
+    		footer: '})();'
+    	    },
     	    files: {
-        	'dist/<%= pkg.name %>.js': ['src/directives/*.js'],
-        	'dist/themes/<%= theme %>.js': ['src/themes/<%= theme %>/**/*.js'],
+        	'dist/<%= pkg.name %>.js': ['src/directives/ui.js', 'src/directives/ui-*.js'],
+        	'dist/themes/<%= theme %>.js': ['src/themes/<%= theme %>/8800.js', 'src/themes/<%= theme %>/*/*.js'],
 	    }
 	},
 	css: {
@@ -96,10 +100,12 @@ module.exports = function(grunt) {
 		/*sourceMap: true,
 		sourceMapIncludeSources: true,
 		sourceMapIn: 'example/coffeescript-sourcemap.js',*/
+		banner: '(function(){',
+    		footer: '})();'
 	    },
             files: {
-        	'dist/<%= pkg.name %>.min.js': ['src/directives/*.js'],
-        	'dist/themes/<%= theme %>.min.js': ['src/themes/<%= theme %>/**/*.js'],
+        	'dist/<%= pkg.name %>.min.js': ['src/directives/ui.js', 'src/directives/ui-*.js'],
+        	'dist/themes/<%= theme %>.min.js': ['src/themes/<%= theme %>/8800.js', 'src/themes/<%= theme %>/*/*.js'],
 	    },
 	},
     },

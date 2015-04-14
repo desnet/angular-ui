@@ -1,7 +1,7 @@
 
 /* ui-notify */
 
-angular.module('directives', ['ng']).directive('uiNotify', ['$timeout', function($timeout) {
+uis.directive('uiNotify', ['$timeout', function($timeout) {
     return {
         restrict: 'AE',
         replace: true,

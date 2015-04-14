@@ -1,7 +1,7 @@
 
 /* ui-busy */
 
-angular.module('directives', ['ng']).directive('uiBusy', ['$timeout', '$templateCache', function($timeout) {
+uis.directive('uiBusy', ['$timeout', '$templateCache', function($timeout, $templateCache) {
     return {
         restrict: 'A', //attribute or element
         replace: false,

@@ -1,7 +1,7 @@
 
 /* ui-captcha */
 
-angular.module('directives', ['ng']).directive('uiCaptcha', [function() {
+uis.directive('uiCaptcha', [function() {
 
     // класс капчи
     function Captcha() {

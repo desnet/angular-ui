@@ -1,7 +1,7 @@
 
 /* uiModal */
 
-angular.module('directives', ['ng']).directive('uiModal', ['$document', function($document) {
+uis.directive('uiModal', ['$document', function($document) {
     return {
         restrict: 'AE',
         replace: true,

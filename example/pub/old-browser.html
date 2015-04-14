@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/css/icons.css" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+    <script type="text/javascript" src="/lib/bowser/bowser.min.js"></script>
+    <script type="text/javascript">
+        if (
+                (bowser.msie && bowser.version < 9) ||
+                (bowser.chrome && bowser.version < 39) ||
+                (bowser.firefox && bowser.version < 29) ||
+                (bowser.safari && bowser.version < 8) ||
+                (bowser.opera && bowser.version < 15) ||
+                (bowser.ios && bowser.osversion && bowser.osversion.split(".")[0] < 6) ||
+                (bowser.blackberry && bowser.version < 10.1)
+                ) {
+            location.href="/old-browser.html";
+        }
+    </script>
+
+</head>
+<body>
+    <div class="old-browser">
+        <div class="old-browser__body">
+            <div class="old-browser__header">
+                <a href="/" class="logo" translate="LOGO"></a>
+            </div>
+            <div class="old-browser__content">
+                <h2>Вам необходимо обновить браузер*</h2>
+                К сожалению, ваш браузер устарел и небезопасен, поэтому
+                сервис МегаФон Услуга 8800 не работают в нём. Для того чтобы начать
+                пользоваться сервисом, необходимо обновить браузер.
+                <table border="0">
+                    <tr>
+                        <td>
+                            <a href="https://www.google.ru/chrome/browser/">
+                                <img src="/img/browser-chrome.jpg" /><br />
+                                Google Chrome
+                            </a>
+                        </td>
+                        <td>
+                            <a href="https://www.mozilla.org/ru/firefox/new/">
+                                <img src="/img/browser-firefox.jpg" /><br />
+                                Firefox
+                            </a>
+                        </td>
+                        <td>
+                            <a href="http://windows.microsoft.com/ru-ru/windows/upgrade-your-browser">
+                                <img src="/img/browser-ie.jpg" /><br />
+                                Internet Explorer
+                            </a>
+                        </td>
+                        <td>
+                            <a href="http://www.opera.com/ru/o/ie-simple">
+                                <img src="/img/browser-opera.jpg" /><br />
+                                Opera
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                <small>
+                    * Браузер — программа для просмотра интернет-страниц.<br />
+                    Поддерживаемые версии браузеров:
+                    Firefox >= 29,
+                    Opera >= 15,
+                    Chrome >= 39,
+                    Safari Версия >= 8.
+                </small>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<ul class="b-tree">
+    <li>
+        <i class="icon-plus"></i>
+        <div class="ui-checkbox"><i class="icon-checkbox-checked"></i></div>
+        <span>&nbsp; Выделенная</span>
+        <ul>
+            <li class="opened">
+            <i class="icon-minus"></i>
+            <div class="ui-checkbox"><i class="icon-checkbox-checked"></i></div>
+            <span>&nbsp; Выделенная - Оператор связи "междугородной и международной электрической связи "Ростелеком"</span>
+            <ul class="ng-scope">
+                <li class="leaf">
+                    <div class="ui-checkbox"><i class="icon-checkbox-checked"></i></div>
+                    <span>&nbsp; Выделенная - Оператор связи "междугородной и международной электрической связи "Ростелеком" - Оператор связи "междугородной и международной электрической связи "Ростелеком" городские</span>
+                </li>
+            </ul>
+            </li>
+            <li class="leaf">
+                <div class="ui-checkbox"><i class="icon-checkbox-checked"></i></div>
+                <span>&nbsp; Выделенная - Оператор связи Вымпел-Коммуникации</span>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <i class="icon-plus"></i>
+        <div class="ui-checkbox"><i class="icon-checkbox-checked"></i></div>
+        <span>&nbsp; Выделенная</span>
+        <ul>
+            <li class="opened">
+                <i class="icon-minus"></i>
+                <div class="ui-checkbox"><i class="icon-checkbox-checked"></i></div>
+                <span>&nbsp; Выделенная - Оператор связи "междугородной и международной электрической связи "Ростелеком"</span>
+                <ul class="ng-scope">
+                    <li class="leaf">
+                        <div class="ui-checkbox"><i class="icon-checkbox-checked"></i></div>
+                        <span>&nbsp; Выделенная - Оператор связи "междугородной и международной электрической связи "Ростелеком" - Оператор связи "междугородной и международной электрической связи "Ростелеком" городские</span>
+                    </li>
+                </ul>
+            </li>
+            <li class="leaf">
+                <div class="ui-checkbox"><i class="icon-checkbox-checked"></i></div>
+                <span>&nbsp; Выделенная - Оператор связи Вымпел-Коммуникации</span>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<nav ng-init="$activeTab=1" class="b-tabs mb1 clearfix">
+    <ul class="clearfix">
+        <li><a href="javascript:" ng-click="$activeTab=1" ng-class="{active: $activeTab==1}">Вкладка 1</a></li>
+        <li><a href="javascript:" ng-click="$activeTab=2" ng-class="{active: $activeTab==2}">Вкладка 2</a></li>
+        <li><a href="javascript:" ng-click="$activeTab=3" ng-class="{active: $activeTab==3}">Вкладка 3</a></li>
+    </ul>
+    <section ng-class="{active: $activeTab==1}">
+        Содержимое 1
+    </section>
+    <section ng-class="{active: $activeTab==2}">
+        Содержимое 2
+    </section>
+    <section ng-class="{active: $activeTab==3}">
+        Содержимое 3
+    </section>
+</nav>
+
+<table class="b-table b-table-hover mb1">
+    <tr>
+        <th style="width: 14px;"></th>
+        <th>Имя</th>
+        <th style="width: 120px;">Телефон / SIP ID</th>
+        <th>Группы</th>
+    </tr>
+    <tr>
+        <td><div class="ui-checkbox"><i class="icon-checkbox-checked"></i></div></td>
+        <td>Some Surname</td>
+        <td>79175555555</td>
+        <td>DEFAULT</td>
+    </tr>
+    <tr>
+        <td><div class="ui-checkbox"><i class="icon-checkbox-checked"></i></div></td>
+        <td></td>
+        <td>79261042667</td>
+        <td>Основной/Резервный</td>
+    </tr>
+    <tr>
+        <td><div class="ui-checkbox"><i class="icon-checkbox-checked"></i></div></td>
+        <td></td>
+        <td>79261052667</td>
+        <td>DEFAULT</td>
+    </tr>
+</table>
+
+<fieldset class="b-fieldset mb1">
+    <legend>Заголовок</legend>
+    Содержимое
+</fieldset>
+
+<div>
+    <a href="#" class="dashed">Отменить</a> или
+    <button class="button active mr05">Сохранить</button>
+    <button class="button mr05">Загрузить</button>
+    <button class="button mr05" disabled="disabled">Удалить все</button>
+    <a href="#" class="button arrow icon-angle-right mr05"></a>
+    <button class="button arrow icon-angle-left"></button>
+</div>

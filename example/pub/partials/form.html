@@ -1,0 +1,55 @@
+<div class="p15">
+    <h3 class="mb1">Кнопки</h3>
+    <div class="mb1">
+        <button class="button active mr05">Добавить</button>
+        <button class="button mr05">Редактировать</button>
+        <button class="button mr05" disabled>Удалить</button>
+    </div>
+    <div class="label mb2" style="width: 100%;">
+        Исходный код:
+        <ui-highlight>
+&lt;button class=&quot;button active mr05&quot;&gt;Добавить&lt;/button&gt;
+&lt;button class=&quot;button mr05&quot;&gt;Редактировать&lt;/button&gt;
+&lt;button class=&quot;button mr05&quot; disabled&gt;Удалить&lt;/button&gt;
+        </ui-highlight>
+    </div>
+    <h3 class="mb1">Дата и время</h3>
+    <div class="mb1">
+        <ui-datepicker ui-model="date" ui-options="dateOptions" style="width: 112px;"></ui-datepicker>
+        <ui-time ng-model="date" style="width: 60px;"></ui-time>
+    </div>
+    <div class="label mb2" style="width: 100%;">
+        Исходный код:
+        <ui-highlight>
+&lt;ui-datepicker ui-model=&quot;startDate&quot; ui-options=&quot;dateOptions&quot; style=&quot;width: 112px;&quot;&gt;&lt;/ui-datepicker&gt;
+&lt;ui-time ng-model=&quot;startDate&quot; style=&quot;width: 60px;&quot;&gt;&lt;/ui-time&gt;
+        </ui-highlight>
+    </div>
+    <h3 class="mb1">Выключатель</h3>
+    <div class="mb1">
+        <ui-switcher ng-model="switcher"></ui-switcher>
+    </div>
+    <div class="label mb2" style="width: 100%;">
+        Исходный код:
+        <ui-highlight>
+&lt;ui-switcher ng-model=&quot;switcher&quot;&gt;&lt;/ui-switcher&gt;
+        </ui-highlight>
+    </div>
+    <h3 class="mb1">Выпадающий список</h3>
+    <div class="mb1">
+        <ui-combo-box ng-model="comboBox" ui-options="{data: comboBoxData}"></ui-combo-box>
+        <!--<ui-combo-box ng-model="comboBox1" ui-options="{data: comboBox1Data}">-->
+            <!--<div class="custom-class">{{node.value}}: {{node.text}}</div>-->
+        <!--</ui-combo-box>-->
+        <!--<ui-combo-box ng-model="comboBox2">-->
+            <!--<item ui-value=""></item>-->
+            <!--<item ui-value=""></item>-->
+        <!--</ui-combo-box>-->
+    </div>
+    <div class="label mb2" style="width: 100%;">
+        Исходный код:
+        <ui-highlight>
+&lt;ui-combo-box ng-model=&quot;comboBox&quot; ui-options=&quot;{data: comboBoxData}&quot;&gt;&lt;/ui-combo-box&gt;
+        </ui-highlight>
+    </div>
+</div>

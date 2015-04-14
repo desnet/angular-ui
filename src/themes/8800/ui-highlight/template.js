@@ -1,0 +1,1 @@
+tpls['ui-highlight.html'] = '<pre class="ui-highlight"><code ng-transclude></code></pre>';

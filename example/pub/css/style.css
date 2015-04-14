@@ -1,0 +1,207 @@
+html, body, table, button, input {
+    font-family: arial, tahoma, verdana, sans;
+    font-size: 14px;
+}
+
+body {
+    overflow-y: scroll !important;
+}
+
+/* layout */
+
+html, body {
+    height: 100%;
+    background-color: #e6e6e6;
+}
+
+div.body-wrapper {
+    position: relative;
+    margin: 0 auto;
+    width: 980px;
+    height: 100%;
+}
+
+div.body-wrapper > section {
+    min-height: 100%;
+    background-color: #ffffff;
+    padding-bottom: 74px;
+    padding-top: 1px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+div.body-wrapper > section.login {
+    background: #f5f6fa url(../img/login-bg.jpg) center bottom no-repeat;
+    background-size: cover;
+}
+
+div.body-wrapper > section.routing {
+    background-color: #d0d0d0;
+}
+
+div.body-wrapper > section > :first-child {
+    margin-top: -1px;
+}
+
+div.body-wrapper > section > header {
+    height: 88px;
+    background-color: #e6e6e6;
+    padding: 20px 0 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+div.body-wrapper > section > header > a {
+    margin: 10px 15px 0 0;
+    color: #000000;
+    text-decoration: underline;
+}
+
+div.body-wrapper > section > header > a:hover {
+    text-decoration: none;
+}
+
+div.body-wrapper > section > header .logo {
+    display: block;
+    width: 332px;
+    height: 34px;
+    margin: 0;
+    background: url('../img/logo.png') center center no-repeat;
+    color: transparent;
+}
+
+div.body-wrapper > section > header > .combo-box {
+    margin-left: 15px;
+}
+
+div.body-wrapper > section > nav.main {
+    border-top: 1px solid #c9c9c9;
+    background-color: #e6e6e6;
+    padding: 20px 0 30px;
+}
+
+div.body-wrapper > section > nav.main li {
+    float: left;
+}
+
+div.body-wrapper > section > nav.main a {
+    display: block;
+    color: #000000;
+    font-size: 1.16em;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+div.body-wrapper > section > nav.main a.active {
+    color: #ffffff;
+    background-color: #57068C;
+}
+
+div.body-wrapper > section > nav.main a:hover {
+    color: #ffffff;
+    background-color: #5C0A96;
+}
+
+div.body-wrapper > section > nav.main a:active {
+    color: #ffffff;
+    background-color: #520084;
+}
+
+div.body-wrapper > section .login {
+    margin: 1.5em;
+}
+
+div.body-wrapper > section .login form {
+    width: 400px;
+}
+
+div.body-wrapper > section .login label {
+    width: 100%;
+}
+
+div.body-wrapper > section .login fieldset {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/*body > section > div {*/
+/*margin: 20px;*/
+/*}*/
+
+div.body-wrapper > footer {
+    height: 74px;
+    line-height: 74px;
+    margin-top: -74px;
+    padding: 0 15px;
+    color: #686868;
+    background-color: #e6e6e6;
+}
+
+.not-found {
+    padding: 15px;
+}
+
+/* Разметка по заглушке для старых браузеров*/
+.old-browser {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: #e6e6e6;
+}
+
+.old-browser a {
+    color: #000000;
+}
+
+.old-browser a:hover {
+    text-decoration: none;
+}
+
+.old-browser__body {
+    position: relative;
+    margin: 0 auto;
+    width: 980px;
+    height: 90%;
+    background: #ffffff;
+}
+
+.old-browser__header {
+    height: 38px;
+    background-color: #e6e6e6;
+    padding: 20px 0 30px;
+}
+
+.old-browser__header .logo {
+    display: block;
+    width: 300px;
+    height: 34px;
+    margin: 0;
+    background: url('../img/logo.png') center center no-repeat;
+}
+
+.old-browser__content {
+    padding: 20px;
+    text-align: center;
+    background-color: #ffffff;
+}
+
+.old-browser__content h2 {
+    margin-bottom: 20px;
+}
+
+.old-browser__content table {
+    margin: 20px auto 40px auto;
+}
+
+.old-browser__content table td {
+    width: 180px;
+}
+
+.old-browser__content small {
+    color: #bcbcbc;
+}
