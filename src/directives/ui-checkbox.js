@@ -8,7 +8,7 @@ uis.directive('uiCheckbox', function () {
         restrict: 'EA',
         replace: true,
         transclude: true,
-        templateUrl: "ui-combo-box.html",
+        templateUrl: "ui-checkbox.html",
         scope: {
             value: '=',
             marked: '=uiMarked'

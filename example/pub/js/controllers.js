@@ -64,6 +64,7 @@ angular.module('controllers', [])
             value: 2
         }];
 
+        $scope.weekdays = [1,5];
     }]);
 
 })();

@@ -64,7 +64,7 @@ uis.directive('uiWeekdayInterval', ['$translate', function($translate) {
             model: '=uiModel'
         },
         link: function($scope) {
-            $scope.$watch('model', function(val) {
+            $scope.$watchCollection('model', function(val) {
                 $scope.intervals = build(val);
             });
         }

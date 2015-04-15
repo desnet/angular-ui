@@ -124,7 +124,7 @@ uis.directive('uiCheckbox', function () {
         restrict: 'EA',
         replace: true,
         transclude: true,
-        templateUrl: "ui-combo-box.html",
+        templateUrl: "ui-checkbox.html",
         scope: {
             value: '=',
             marked: '=uiMarked'
@@ -168,42 +168,44 @@ uis.directive('uiComboBox', ['$document', function($document) {
         scope: {
             options: '=uiOptions'
         },
-        link: function($scope, element, attrs, ngModel) {
+        compile: function (tElement) {
+            return function($scope, element, attrs, ngModel) {
 
-            $scope.nodes = $scope.options && $scope.options.data;
-            $scope.isDisabled = $scope.options && $scope.options.disabled;
-            $scope.selected = {};
+                $scope.nodes = $scope.options && $scope.options.data;
+                $scope.isDisabled = $scope.options && $scope.options.disabled;
+                $scope.selected = {};
 
-            // выбор елемента
-            $scope.open = function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                $scope.isOpen = $scope.isDisabled ? false : !$scope.isOpen;
-            };
+                // выбор елемента
+                $scope.open = function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    $scope.isOpen = $scope.isDisabled ? false : !$scope.isOpen;
+                };
 
-            // выбор елемента
-            $scope.select = function(node) {
-                $scope.selected = node;
-                ngModel.$setViewValue(node.value);
-            };
+                // выбор елемента
+                $scope.select = function(node) {
+                    $scope.selected = node;
+                    ngModel.$setViewValue(node.value);
+                };
 
-            // выбираем значение при рендере
-            ngModel.$render = function () {
-                for(var i=0; i<$scope.nodes.length; i++) {
-                    if($scope.nodes[i].value==ngModel.$viewValue) {
-                        $scope.selected = $scope.nodes[i];
-                        break;
+                // выбираем значение при рендере
+                ngModel.$render = function () {
+                    for(var i=0; i<$scope.nodes.length; i++) {
+                        if($scope.nodes[i].value==ngModel.$viewValue) {
+                            $scope.selected = $scope.nodes[i];
+                            break;
+                        }
                     }
-                }
-            };
+                };
 
-            // скрываем при клике по документу
-            $document.on('click', function(e) {
-                if($scope.isOpen) {
-                    $scope.isOpen = false;
-                    $scope.$apply();
-                }
-            });
+                // скрываем при клике по документу
+                $document.on('click', function(e) {
+                    if($scope.isOpen) {
+                        $scope.isOpen = false;
+                        $scope.$apply();
+                    }
+                });
+            };
         }
     };
 }]);
@@ -1774,7 +1776,7 @@ uis.directive('uiWeekdayInterval', ['$translate', function($translate) {
             model: '=uiModel'
         },
         link: function($scope) {
-            $scope.$watch('model', function(val) {
+            $scope.$watchCollection('model', function(val) {
                 $scope.intervals = build(val);
             });
         }
@@ -1784,7 +1786,7 @@ uis.directive('uiWeekdayInterval', ['$translate', function($translate) {
 
 /* uiWeekdayInterval */
 
-uis.directive('uiWeekDay', ['$translate', function($translate) {
+uis.directive('uiWeekdaySwitch', ['$translate', function($translate) {
 
     var weekdays = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'],
         firstWeekday = weekdays.indexOf($translate.instant('WEEK.FIRST_DAY'));
@@ -1834,12 +1836,12 @@ uis.directive('uiWeekDay', ['$translate', function($translate) {
 
             };
 
-            // заглушка, если бодель пуста
+            // заглушка, если модель пуста
             if(!$scope.model) {
                 $scope.model = [];
             }
 
-            $scope.$watch('model', function(val) {
+            $scope.$watchCollection('model', function(val) {
                 $scope.weekdays = build(val);
             });
         }

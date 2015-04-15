@@ -82,16 +82,16 @@ angular.module('app', [
                         access: access()
                     }
                 })
-                .state('statistics', {
-                    url: "/faq",
-                    templateUrl: "partials/faq.html",
+                .state('windows', {
+                    url: "/windows",
+                    templateUrl: "partials/windows.html",
                     resolve: {
                         access: access()
                     }
                 })
-                .state('system', {
-                    url: "/system",
-                    templateUrl: "partials/faq.html",
+                .state('classes', {
+                    url: "/classes",
+                    templateUrl: "partials/classes.html",
                     resolve: {
                         access: access()
                     }

@@ -387,7 +387,6 @@ div.label > textarea {
 .mt1 {margin-top: 1em !important;}
 .mt2 {margin-top: 2em !important;}
 .mt3 {margin-top: 3em !important;}
-.mt3 {margin-top: 4em !important;}
 
 .mb05 {margin-bottom: 0.5em !important;}
 .mb1 {margin-bottom: 1em !important;}
@@ -395,7 +394,7 @@ div.label > textarea {
 .mb3 {margin-bottom: 3em !important;}
 
 .ml1 {margin-left: 1em !important;}
-.m115 {margin-left: 1.5em !important;}
+.ml15 {margin-left: 1.5em !important;}
 .ml2 {margin-left: 2em !important;}
 .ml3 {margin-left: 3em !important;}
 
@@ -404,10 +403,39 @@ div.label > textarea {
 .mr2 {margin-right: 2em !important;}
 .mr3 {margin-right: 3em !important;}
 
+.p05 {padding: 0.5em !important;}
 .p1 {padding: 1em !important;}
 .p15 {padding: 1.5em !important;}
+.p2 {padding: 2em !important;}
+.p3 {padding: 3em !important;}
+
+.pl05 {padding-left: 0.5em !important;}
 .pl1 {padding-left: 1em !important;}
+.pl15 {padding-left: 1.5em !important;}
 .pl2 {padding-left: 2em !important;}
+.pl3 {padding-left: 3em !important;}
+
+.pr05 {padding-right: 0.5em !important;}
+.pr1 {padding-right: 1em !important;}
+.pr15 {padding-right: 1.5em !important;}
+.pr2 {padding-right: 2em !important;}
+.pr3 {padding-right: 3em !important;}
+
+.pt05 {padding-top: 0.5em !important;}
+.pt1 {padding-top: 1em !important;}
+.pt15 {padding-top: 1.5em !important;}
+.pt2 {padding-top: 2em !important;}
+.pt3 {padding-top: 3em !important;}
+
+.pb05 {padding-bottom: 0.5em !important;}
+.pb1 {padding-bottom: 1em !important;}
+.pb15 {padding-bottom: 1.5em !important;}
+.pb2 {padding-bottom: 2em !important;}
+.pb3 {padding-bottom: 3em !important;}
+
+.clear {
+    clear: both;
+}
 
 .clearfix:after {
     display: block;

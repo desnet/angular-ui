@@ -1,28 +1,38 @@
 <div class="p15">
     <h3 class="mb1">Кнопки</h3>
     <div class="mb1">
-        <button class="button active mr05">Добавить</button>
+        <a href="#" class="button active mr05">Добавить</a>
         <button class="button mr05">Редактировать</button>
         <button class="button mr05" disabled>Удалить</button>
+        <button class="button arrow icon-angle-right"></button>
+        <button class="button arrow icon-angle-left mr05"></button>
+        <a href="#" class="dashed">Отменить</a>
     </div>
     <div class="label mb2" style="width: 100%;">
         Исходный код:
         <ui-highlight>
-&lt;button class=&quot;button active mr05&quot;&gt;Добавить&lt;/button&gt;
+&lt;a href=&quot;#&quot; class=&quot;button active mr05&quot;&gt;Добавить&lt;/a&gt;
 &lt;button class=&quot;button mr05&quot;&gt;Редактировать&lt;/button&gt;
 &lt;button class=&quot;button mr05&quot; disabled&gt;Удалить&lt;/button&gt;
+&lt;button class=&quot;button arrow icon-angle-right&quot;&gt;&lt;/button&gt;
+&lt;button class=&quot;button arrow icon-angle-left&quot;&gt;&lt;/button&gt;
+&lt;a href=&quot;#&quot; class=&quot;dashed&quot;&gt;&#x041e;&#x0442;&#x043c;&#x0435;&#x043d;&#x0438;&#x0442;&#x044c;&lt;/a&gt;
         </ui-highlight>
     </div>
     <h3 class="mb1">Дата и время</h3>
     <div class="mb1">
         <ui-datepicker ui-model="date" ui-options="dateOptions" style="width: 112px;"></ui-datepicker>
-        <ui-time ng-model="date" style="width: 60px;"></ui-time>
+        <ui-time ng-model="date" class="mb1" style="width: 60px;"></ui-time>
+        <ui-weekday-switch ui-model="weekdays" class="mb1" style="width: 50%;"></ui-weekday-switch>
+        <ui-weekday-interval ui-model="weekdays"></ui-weekday-interval>
     </div>
     <div class="label mb2" style="width: 100%;">
         Исходный код:
         <ui-highlight>
-&lt;ui-datepicker ui-model=&quot;startDate&quot; ui-options=&quot;dateOptions&quot; style=&quot;width: 112px;&quot;&gt;&lt;/ui-datepicker&gt;
-&lt;ui-time ng-model=&quot;startDate&quot; style=&quot;width: 60px;&quot;&gt;&lt;/ui-time&gt;
+&lt;ui-datepicker ui-model=&quot;date&quot; ui-options=&quot;dateOptions&quot; style=&quot;width: 112px;&quot;&gt;&lt;/ui-datepicker&gt;
+&lt;ui-time ng-model=&quot;date&quot; class=&quot;mb1&quot; style=&quot;width: 60px;&quot;&gt;&lt;/ui-time&gt;
+&lt;ui-weekday-switch ui-model=&quot;weekdays&quot; class=&quot;mb1&quot; style=&quot;width: 50%;&quot;&gt;&lt;/ui-weekday-switch&gt;
+&lt;ui-weekday-interval ui-model=&quot;weekdays&quot;&gt;&lt;/ui-weekday-interval&gt;
         </ui-highlight>
     </div>
     <h3 class="mb1">Выключатель</h3>
@@ -38,7 +48,7 @@
     <h3 class="mb1">Выпадающий список</h3>
     <div class="mb1">
         <ui-combo-box ng-model="comboBox" ui-options="{data: comboBoxData}"></ui-combo-box>
-        <!--<ui-combo-box ng-model="comboBox1" ui-options="{data: comboBox1Data}">-->
+        <!--<ui-combo-box ng-model="comboBox" ui-options="{data: comboBoxData}">-->
             <!--<div class="custom-class">{{node.value}}: {{node.text}}</div>-->
         <!--</ui-combo-box>-->
         <!--<ui-combo-box ng-model="comboBox2">-->
@@ -50,6 +60,84 @@
         Исходный код:
         <ui-highlight>
 &lt;ui-combo-box ng-model=&quot;comboBox&quot; ui-options=&quot;{data: comboBoxData}&quot;&gt;&lt;/ui-combo-box&gt;
+        </ui-highlight>
+    </div>
+    <h3 class="mb1">Флажок</h3>
+    <div class="mb1">
+        <ui-checkbox ng-model="checked"> Флажок</ui-checkbox>
+    </div>
+    <div class="label mb2" style="width: 100%;">
+        Исходный код:
+        <ui-highlight>
+&lt;ui-checkbox ng-model=&quot;checked&quot;&gt; Флажок&lt;/ui-checkbox&gt;
+        </ui-highlight>
+    </div>
+    <h3 class="mb1">Поля форм</h3>
+    <div class="mb1">
+        <label>
+            Название группы *
+            <input type="text" name="name" ng-model="groupName" placeholder="Введите название группы">
+        </label>
+        <div class="label">
+            Название группы *
+            <input type="text" name="name" ng-model="groupName" placeholder="Введите название группы">
+        </div>
+        <div class="label">
+            Поиск группы *
+            <div style="width: 100%;" class="field-icon field-icon-left">
+                <input type="text" name="name" ng-model="groupName" placeholder="Введите название группы">
+                <i class="icon-search"></i>
+            </div>
+        </div>
+        <div class="label">
+            Поиск группы *
+            <div style="width: 100%;" class="field-icon field-icon-right">
+                <input type="text" name="name" ng-model="groupName" placeholder="Введите название группы">
+                <i class="icon-search"></i>
+            </div>
+        </div>
+    </div>
+    <div class="label mb2" style="width: 100%;">
+        Исходный код:
+        <ui-highlight>
+&lt;label&gt;
+    &#x041d;&#x0430;&#x0437;&#x0432;&#x0430;&#x043d;&#x0438;&#x0435; &#x0433;&#x0440;&#x0443;&#x043f;&#x043f;&#x044b; *
+    &lt;input type=&quot;text&quot; name=&quot;name&quot; ng-model=&quot;groupName&quot; placeholder=&quot;&#x0412;&#x0432;&#x0435;&#x0434;&#x0438;&#x0442;&#x0435; &#x043d;&#x0430;&#x0437;&#x0432;&#x0430;&#x043d;&#x0438;&#x0435; &#x0433;&#x0440;&#x0443;&#x043f;&#x043f;&#x044b;&quot;&gt;
+&lt;/label&gt;
+&lt;div class=&quot;label&quot;&gt;
+    &#x041d;&#x0430;&#x0437;&#x0432;&#x0430;&#x043d;&#x0438;&#x0435; &#x0433;&#x0440;&#x0443;&#x043f;&#x043f;&#x044b; *
+    &lt;input type=&quot;text&quot; name=&quot;name&quot; ng-model=&quot;groupName&quot; placeholder=&quot;&#x0412;&#x0432;&#x0435;&#x0434;&#x0438;&#x0442;&#x0435; &#x043d;&#x0430;&#x0437;&#x0432;&#x0430;&#x043d;&#x0438;&#x0435; &#x0433;&#x0440;&#x0443;&#x043f;&#x043f;&#x044b;&quot;&gt;
+&lt;/div&gt;
+&lt;div class=&quot;label&quot;&gt;
+    &#x041f;&#x043e;&#x0438;&#x0441;&#x043a; &#x0433;&#x0440;&#x0443;&#x043f;&#x043f;&#x044b; *
+    &lt;div style=&quot;width: 100%;&quot; class=&quot;field-icon field-icon-left&quot;&gt;
+        &lt;input type=&quot;text&quot; name=&quot;name&quot; ng-model=&quot;groupName&quot; placeholder=&quot;&#x0412;&#x0432;&#x0435;&#x0434;&#x0438;&#x0442;&#x0435; &#x043d;&#x0430;&#x0437;&#x0432;&#x0430;&#x043d;&#x0438;&#x0435; &#x0433;&#x0440;&#x0443;&#x043f;&#x043f;&#x044b;&quot;&gt;
+        &lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;label&quot;&gt;
+    &#x041f;&#x043e;&#x0438;&#x0441;&#x043a; &#x0433;&#x0440;&#x0443;&#x043f;&#x043f;&#x044b; *
+    &lt;div style=&quot;width: 100%;&quot; class=&quot;field-icon field-icon-right&quot;&gt;
+        &lt;input type=&quot;text&quot; name=&quot;name&quot; ng-model=&quot;groupName&quot; placeholder=&quot;&#x0412;&#x0432;&#x0435;&#x0434;&#x0438;&#x0442;&#x0435; &#x043d;&#x0430;&#x0437;&#x0432;&#x0430;&#x043d;&#x0438;&#x0435; &#x0433;&#x0440;&#x0443;&#x043f;&#x043f;&#x044b;&quot;&gt;
+        &lt;i class=&quot;icon-search&quot;&gt;&lt;/i&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </ui-highlight>
+    </div>
+    <h3 class="mb2">Рамка</h3>
+    <div class="mb1">
+        <fieldset class="b-fieldset">
+            <legend>Заголовок</legend>
+            Содержимое
+        </fieldset>
+    </div>
+    <div class="label mb2" style="width: 100%;">
+        Исходный код:
+        <ui-highlight>
+&lt;fieldset class=&quot;b-fieldset&quot;&gt;
+    &lt;legend&gt;Заголовок&lt;/legend&gt;
+    Содержимое
+&lt;/fieldset&gt;
         </ui-highlight>
     </div>
 </div>

@@ -1,7 +1,7 @@
 
 /* uiWeekdayInterval */
 
-uis.directive('uiWeekDay', ['$translate', function($translate) {
+uis.directive('uiWeekdaySwitch', ['$translate', function($translate) {
 
     var weekdays = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'],
         firstWeekday = weekdays.indexOf($translate.instant('WEEK.FIRST_DAY'));
@@ -51,12 +51,12 @@ uis.directive('uiWeekDay', ['$translate', function($translate) {
 
             };
 
-            // заглушка, если бодель пуста
+            // заглушка, если модель пуста
             if(!$scope.model) {
                 $scope.model = [];
             }
 
-            $scope.$watch('model', function(val) {
+            $scope.$watchCollection('model', function(val) {
                 $scope.weekdays = build(val);
             });
         }
