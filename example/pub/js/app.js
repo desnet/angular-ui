@@ -35,6 +35,10 @@ angular.module('app', [
             // травсформатор запросов и ответов
             //$httpProvider.interceptors.push('restHttpTransformer');
 
+            // главная страничка
+            $urlRouterProvider.when("", "/tabs");
+            $urlRouterProvider.when("/", "/tabs");
+
             // Любые неопределенные url перенаправлять на /404
             $urlRouterProvider.otherwise("/404");
 
@@ -85,6 +89,13 @@ angular.module('app', [
                 .state('windows', {
                     url: "/windows",
                     templateUrl: "partials/windows.html",
+                    resolve: {
+                        access: access()
+                    }
+                })
+                .state('windows.demo', {
+                    url: "/demo",
+                    templateUrl: "partials/windows.demo.html",
                     resolve: {
                         access: access()
                     }

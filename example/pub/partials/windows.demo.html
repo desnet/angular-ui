@@ -1,0 +1,16 @@
+<ui-modal>
+    <header>
+        <h3>Модальное окно</h3>
+        <i ng-click="cancel()" class="icon-close"></i>
+    </header>
+    <section>
+        <div class="m15">Содержимое модального окна</div>
+    </section>
+    <footer class="text-right">
+        <a href="#" ng-click="cancel(); $event.preventDefault();" class="dashed">Отменить</a> или
+        <button ng-click="save()" ng-disabled="categoryEdit.$invalid" class="button active ml1">Сохранить</button>
+    </footer>
+</ui-modal>
+<style type="text/css">
+    body {overflow: hidden;}
+</style>

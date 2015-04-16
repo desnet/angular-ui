@@ -35,13 +35,18 @@ uis.directive('uiConfirm', ['$document', '$compile', '$templateCache', function(
         // показать
         show: function() {
 
+            var self = this;
+
             // задаем переменные
             this.$scope.title = this.title;
             this.$scope.content = this.content;
 
-            // создаем и добавляем в DOM
-            this.$confirm = $compile(this.template)(this.$scope);
-            this.$confirm.appendTo($document.find('body'));
+            // применяем к окружению
+            this.$scope.$apply(function() {
+                // создаем и добавляем в DOM
+                self.$confirm = $compile(self.template)(self.$scope);
+                self.$confirm.appendTo($document.find('body'));
+            });
         },
 
         // скрыть

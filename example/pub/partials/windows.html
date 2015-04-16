@@ -1,38 +1,48 @@
-<nav ng-init="activeTab=1" class="b-tabs mb1 clearfix">
-    <ul class="clearfix">
-        <li><a href="javascript:" ng-click="activeTab=1" ng-class="{active: activeTab==1}">Пример 1</a></li>
-        <li><a href="javascript:" ng-click="activeTab=2" ng-class="{active: activeTab==2}">Пример 2</a></li>
-    </ul>
-    <section ng-class="{active: activeTab==1}">
-        <h3 class="mb05">Пример 1</h3>
-        <div class="mb05">Статические вкладки, каждая вкладка имеет свое, статическое тело.</div>
+<div class="p15">
+    <h3 class="mb1">Стандартное модальное окно</h3>
+    <div class="mb05">Внешний вид модального окна.</div>
+    <div class="mb1">
+        <div ng-form="categoryEdit" class="ui-modal ui-modal-demo">
+            <header>
+                <h3>Модальное окно</h3>
+                <i ng-click="cancel()" class="icon-close"></i>
+            </header>
+            <section class="pl15">
+                Содержимое модального окна
+            </section>
+            <footer class="text-right">
+                <a href="#" ng-click="cancel(); $event.preventDefault();" class="dashed">Отменить</a> или
+                <button ng-click="save()" ng-disabled="categoryEdit.$invalid" class="button active ml1">Сохранить</button>
+            </footer>
+        </div>
+    </div>
+    <div class="mb05">Демонстрация:</div>
+    <a ui-sref="windows.demo" class="button active mb1">Нажми меня</a>
+    <div class="label mb2" style="width: 100%;">
+        Исходный код:
         <ui-highlight>
-&lt;nav ng-init=&quot;activeTab=1&quot; class=&quot;b-tabs mb1 clearfix&quot;&gt;
-    &lt;ul class=&quot;clearfix&quot;&gt;
-        &lt;li&gt;&lt;a href=&quot;javascript:&quot; ng-click=&quot;activeTab=1&quot; ng-class=&quot;{active: activeTab==1}&quot;&gt;Пример 1&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a href=&quot;javascript:&quot; ng-click=&quot;activeTab=2&quot; ng-class=&quot;{active: activeTab==2}&quot;&gt;Пример 2&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;section ng-class=&quot;{active: activeTab==3}&quot;&gt;
-        Содержимое 1
+&lt;ui-modal&gt;
+    &lt;header&gt;
+        &lt;h3&gt;&#x041c;&#x043e;&#x0434;&#x0430;&#x043b;&#x044c;&#x043d;&#x043e;&#x0435; &#x043e;&#x043a;&#x043d;&#x043e;&lt;/h3&gt;
+        &lt;i ng-click=&quot;cancel()&quot; class=&quot;icon-close&quot;&gt;&lt;/i&gt;
+    &lt;/header&gt;
+    &lt;section&gt;
+        &lt;div class=&quot;m15&quot;&gt;&#x0421;&#x043e;&#x0434;&#x0435;&#x0440;&#x0436;&#x0438;&#x043c;&#x043e;&#x0435; &#x043c;&#x043e;&#x0434;&#x0430;&#x043b;&#x044c;&#x043d;&#x043e;&#x0433;&#x043e; &#x043e;&#x043a;&#x043d;&#x0430;&lt;/div&gt;
     &lt;/section&gt;
-    &lt;section ng-class=&quot;{active: activeTab==3}&quot;&gt;
-        Содержимое 2
-    &lt;/section&gt;
-&lt;/nav&gt;
+    &lt;footer class=&quot;text-right&quot;&gt;
+        &lt;a href=&quot;#&quot; ng-click=&quot;cancel(); $event.preventDefault();&quot; class=&quot;dashed&quot;&gt;&#x041e;&#x0442;&#x043c;&#x0435;&#x043d;&#x0438;&#x0442;&#x044c;&lt;/a&gt; &#x0438;&#x043b;&#x0438;
+        &lt;button ng-click=&quot;save()&quot; ng-disabled=&quot;categoryEdit.$invalid&quot; class=&quot;button active ml1&quot;&gt;&#x0421;&#x043e;&#x0445;&#x0440;&#x0430;&#x043d;&#x0438;&#x0442;&#x044c;&lt;/button&gt;
+    &lt;/footer&gt;
+&lt;/ui-modal&gt;
         </ui-highlight>
-    </section>
-    <section ng-class="{active: activeTab==2}">
-        <h3 class="mb05">Пример 2</h3>
-        <div class="mb05">Динамические вкладки, содержимое подгружается через директиву ui-view.</div>
+    </div>
+    <h3 class="mb1">Модальное окно подтверждения действия</h3>
+    <button class="button active mb1" ui-confirm="{title: 'Удалить', content: 'Вы действительно хотите удалить обьект?', onSuccess: delete}">Нажми меня</button>
+    <div class="label mb2" style="width: 100%;">
+        Исходный код:
         <ui-highlight>
-&lt;nav class=&quot;b-tabs clearfix&quot;&gt;
-    &lt;ul class=&quot;clearfix&quot;&gt;
-        &lt;li&gt;&lt;a ui-sref=&quot;tab1&quot; ui-sref-active=&quot;active&quot;&gt;Вкладка 1&lt;/a&gt;&lt;/li&gt;
-        &lt;li&gt;&lt;a ui-sref=&quot;tab2&quot; ui-sref-active=&quot;active&quot;&gt;Вкладка 2&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-    &lt;section ui-view class=&quot;active&quot;&gt;
-    &lt;/section&gt;
-&lt;/nav&gt;
+&lt;button class=&quot;button active mb1&quot; ui-confirm=&quot;{title: '&#x0423;&#x0434;&#x0430;&#x043b;&#x0438;&#x0442;&#x044c;', content: '&#x0412;&#x044b; &#x0434;&#x0435;&#x0439;&#x0441;&#x0442;&#x0432;&#x0438;&#x0442;&#x0435;&#x043b;&#x044c;&#x043d;&#x043e; &#x0445;&#x043e;&#x0442;&#x0438;&#x0442;&#x0435; &#x0443;&#x0434;&#x0430;&#x043b;&#x0438;&#x0442;&#x044c; &#x043e;&#x0431;&#x044c;&#x0435;&#x043a;&#x0442;?', onSuccess: delete}&quot;&gt;&#x041d;&#x0430;&#x0436;&#x043c;&#x0438; &#x043c;&#x0435;&#x043d;&#x044f;&lt;/button&gt;
         </ui-highlight>
-    </section>
-</nav>
+    </div>
+</div>
+<ui-view></ui-view>

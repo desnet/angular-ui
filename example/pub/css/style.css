@@ -205,3 +205,10 @@ div.body-wrapper > footer {
 .old-browser__content small {
     color: #bcbcbc;
 }
+
+.ui-modal.ui-modal-demo {
+    position: relative;
+    left: auto;
+    top: auto;
+    width: 50%;
+}
